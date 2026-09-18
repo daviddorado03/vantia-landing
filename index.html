@@ -209,6 +209,31 @@
   }
   .pilot-ctas{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
 
+  .icon-card .icon{font-size:26px; line-height:1;}
+  .icon-card p{margin-top:8px;}
+
+  .security{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:26px; margin-top:16px;
+    display:flex; gap:18px; align-items:flex-start;
+  }
+
+  .faq{
+    margin-top:26px; border-radius:16px; overflow:hidden;
+    border:1px solid var(--line); background:var(--surface);
+  }
+  .faq details{padding:18px 22px; border-bottom:1px solid var(--line);}
+  .faq details:last-child{border-bottom:none;}
+  .faq summary{
+    cursor:pointer; font-weight:600; font-size:15.5px; color:var(--text);
+    list-style:none; display:flex; justify-content:space-between;
+    align-items:center; gap:12px;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; font-size:20px; color:var(--text-soft); font-weight:400; flex:none;}
+  .faq details[open] summary::after{content:"–";}
+  .faq .faq-a{margin-top:10px; font-size:14.5px;}
+
   footer{
     padding-block:36px 48px; margin-top:8px;
     border-top:1px solid var(--line);
@@ -316,6 +341,64 @@
         <h3>Construido con el mismo rigor con el que se prueba software crítico</h3>
         <p>Vengo de ingeniería de software y control de calidad (QA): cada automatización se prueba a fondo con decenas de preguntas reales antes de tocar el WhatsApp real de tu clínica. No es una plantilla genérica — es un sistema hecho a la medida de tu forma de atender.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0;">
+    <span class="eyebrow">Sin riesgo para ti</span>
+    <h2 style="font-size:26px; margin-top:10px;">Si no te sirve, no pierdes nada.</h2>
+    <div class="problem-grid">
+      <div class="problem-card icon-card">
+        <div class="icon">🆓</div>
+        <p><strong>El piloto es gratis</strong> durante el primer mes completo — no se pide tarjeta ni pago por adelantado.</p>
+      </div>
+      <div class="problem-card icon-card">
+        <div class="icon">🔓</div>
+        <p><strong>Sin permanencia.</strong> Puedes cancelar cuando quieras, sin explicaciones ni letra pequeña.</p>
+      </div>
+      <div class="problem-card icon-card">
+        <div class="icon">🛠️</div>
+        <p><strong>Ajustes ilimitados</strong> durante el piloto: si algo no suena como tu clínica, se corrige sin costo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0;">
+    <span class="eyebrow">Seguridad de tus datos</span>
+    <h2 style="font-size:26px; margin-top:10px;">Los datos de tus pacientes no se comparten con nadie.</h2>
+    <div class="security">
+      <div class="trust-icon">🔒</div>
+      <div>
+        <p>La información que pasa por el asistente (nombres, teléfonos, conversaciones) se usa únicamente para agendar y dar seguimiento a tus pacientes — nunca se comparte con terceros ni se usa para otro fin.</p>
+        <p style="margin-top:10px;">Puedes pedir que se elimine cualquier dato en cualquier momento, y al terminar el piloto decides si continúas o borramos todo. Como parte del mismo piloto, esto también se ajusta a cómo tu clínica maneja hoy la confidencialidad de sus pacientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0;">
+    <span class="eyebrow">Preguntas frecuentes</span>
+    <h2 style="font-size:26px; margin-top:10px; margin-bottom:18px;">Lo que más preguntan antes de empezar.</h2>
+    <div class="faq">
+      <details open>
+        <summary>¿Necesito cambiar mi número de WhatsApp?</summary>
+        <p class="faq-a">No. Se conecta sobre el número de WhatsApp que ya usas. Si todavía no tienes WhatsApp Business, te ayudo a configurarlo — no tiene costo adicional dentro del piloto.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si un paciente pregunta algo que la IA no puede responder?</summary>
+        <p class="faq-a">Se escala a una persona real de tu equipo. La IA responde lo que sabe con certeza (horarios, precios, disponibilidad) y nunca inventa información clínica ni sustituye el criterio médico.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda en estar listo?</summary>
+        <p class="faq-a">Entre 3 y 5 días desde que platicamos, dependiendo de qué tan específicos sean tus servicios y protocolos de atención.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto va a costar después del piloto?</summary>
+        <p class="faq-a">Durante el piloto no pagas nada. Al terminar el primer mes te comparto una propuesta basada en resultados reales de tu clínica — sin ningún compromiso de continuar.</p>
+      </details>
+      <details>
+        <summary>¿Por qué debería confiar en alguien que recién empieza con esto?</summary>
+        <p class="faq-a">Por eso el piloto es gratuito y sin permanencia: para que lo juzgues por los resultados en tu propia clínica y no por lo que yo diga de mí mismo.</p>
+      </details>
     </div>
   </section>
 
