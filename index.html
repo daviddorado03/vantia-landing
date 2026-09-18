@@ -1,0 +1,352 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Vantia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Sora:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#F3F6F4;
+    --surface:#FFFFFF;
+    --surface-2:#E9EFEB;
+    --text:#122624;
+    --text-soft:#3E5652;
+    --primary:#12433F;
+    --primary-2:#0B2E2B;
+    --accent:#E2694B;
+    --accent-2:#C8532F;
+    --line:#D7E1DD;
+    --hero-1:#12433F;
+    --hero-2:#0A2624;
+    --hero-text:#F6FBF9;
+    --hero-text-soft:#CFE7E1;
+    --hero-line:rgba(255,255,255,.18);
+    --hero-pill-bg:rgba(255,255,255,.12);
+    --hero-pill-text:#EAF8F2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B1A18;
+      --surface:#122624;
+      --surface-2:#17302D;
+      --text:#EDF3F1;
+      --text-soft:#AFC4BF;
+      --primary:#7FD9C9;
+      --primary-2:#9CE6D8;
+      --accent:#F08363;
+      --accent-2:#F5A186;
+      --line:#264541;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1A18;
+    --surface:#122624;
+    --surface-2:#17302D;
+    --text:#EDF3F1;
+    --text-soft:#AFC4BF;
+    --primary:#7FD9C9;
+    --primary-2:#9CE6D8;
+    --accent:#F08363;
+    --accent-2:#F5A186;
+    --line:#264541;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Sora",system-ui,-apple-system,Segoe UI,sans-serif;
+    padding-left:max(20px, env(safe-area-inset-left,0px));
+    padding-right:max(20px, env(safe-area-inset-right,0px));
+  }
+  h1,h2,h3{
+    font-family:"Fraunces",Georgia,serif;
+    text-wrap:balance;
+    margin:0;
+    color:var(--text);
+  }
+  p{margin:0; color:var(--text-soft); line-height:1.6;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto;}
+  .band{padding-block:56px;}
+  .eyebrow{
+    font-family:"Sora",sans-serif;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent-2);
+    font-weight:700;
+  }
+
+  header.topbar{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:10;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:760px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:14px; gap:12px;
+  }
+  .brand{
+    font-family:"Fraunces",serif; font-weight:600; font-size:19px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand-mark{
+    width:26px; height:26px; border-radius:7px;
+    background:linear-gradient(155deg, var(--primary), var(--accent));
+    flex:none;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px;
+    font-weight:600; font-size:14.5px;
+    text-decoration:none; white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-2);}
+  .btn-ghost{border-color:var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--text-soft);}
+  .btn-sm{padding:8px 14px; font-size:13.5px;}
+
+  .hero{
+    background:linear-gradient(160deg, var(--hero-1), var(--hero-2));
+    border-radius:0 0 28px 28px;
+    padding-block:72px 56px;
+  }
+  .hero-inner{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:22px;}
+  .hero .eyebrow-hero{
+    font-family:"Sora",sans-serif; font-size:12.5px; letter-spacing:.14em;
+    text-transform:uppercase; font-weight:700; color:#9FE0CE;
+  }
+  .hero h1{color:var(--hero-text); font-size:clamp(28px,5vw,42px); font-weight:600; line-height:1.12;}
+  .hero p.lead{color:var(--hero-text-soft); font-size:17px; max-width:560px;}
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:6px;}
+  .hero-ctas .btn-ghost{
+    background:rgba(255,255,255,.08); color:var(--hero-text); border-color:var(--hero-line);
+  }
+  .hero-ctas .btn-ghost:hover{background:rgba(255,255,255,.16);}
+  .hero-stat-row{
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+  }
+  .pill{
+    background:var(--hero-pill-bg);
+    border:1px solid var(--hero-line);
+    color:var(--hero-pill-text);
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:13px;
+    font-weight:500;
+  }
+  .hero-email-link, .pilot-email-link{
+    display:inline-block; margin-top:4px;
+    font-size:13.5px; text-decoration:none;
+  }
+  .hero-email-link{color:var(--hero-text-soft); border-bottom:1px dotted var(--hero-line);}
+  .pilot-email-link{color:var(--text-soft); border-bottom:1px dotted var(--line); margin-top:14px;}
+
+  .problem-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px;
+  }
+  @media (max-width:620px){ .problem-grid{grid-template-columns:1fr;} }
+  .problem-card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:20px;
+  }
+  .problem-card .num{
+    font-family:"Fraunces",serif; font-size:28px; color:var(--accent-2); font-weight:600;
+  }
+  .problem-card p{margin-top:6px; font-size:14.5px;}
+
+  .steps{
+    display:flex; flex-direction:column; gap:0; margin-top:28px;
+    border-radius:16px; overflow:hidden; border:1px solid var(--line);
+    background:var(--surface);
+  }
+  .step{
+    display:flex; gap:16px; padding:20px 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    flex:none; width:34px; height:34px; border-radius:10px;
+    background:var(--surface-2); color:var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-family:"Fraunces",serif;
+  }
+  :root[data-theme="dark"] .step-num{color:var(--accent);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .step-num{color:var(--accent);}}
+  .step-body h3{font-size:16.5px; font-weight:600; margin-bottom:4px;}
+  .step-body p{font-size:14.5px;}
+
+  .trust{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:26px; margin-top:26px;
+    display:flex; gap:18px; align-items:flex-start;
+  }
+  .trust-icon{
+    flex:none; width:42px; height:42px; border-radius:12px;
+    background:var(--surface-2); display:flex; align-items:center; justify-content:center;
+    font-size:19px;
+  }
+  .trust h3{font-size:16.5px; font-weight:600; margin-bottom:6px;}
+  .trust p{font-size:14.5px;}
+
+  .pilot{
+    background:var(--surface-2);
+    border-radius:22px;
+    padding:32px 28px;
+    margin-top:34px;
+    text-align:center;
+  }
+  .pilot h2{font-size:24px; font-weight:600;}
+  .pilot p{max-width:520px; margin:12px auto 0; font-size:15px;}
+  .pilot-includes{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px;
+  }
+  .chip{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:999px; padding:7px 14px; font-size:13px; color:var(--text-soft);
+  }
+  .pilot-ctas{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+
+  footer{
+    padding-block:36px 48px; margin-top:8px;
+    border-top:1px solid var(--line);
+    display:flex; flex-direction:column; gap:14px; align-items:center;
+    text-align:center;
+  }
+  footer .brand{font-size:16px;}
+  footer p{font-size:13px;}
+  .foot-links{display:flex; gap:16px; font-size:13.5px; flex-wrap:wrap; justify-content:center; align-items:center;}
+  .foot-links a{text-decoration:none; color:var(--text-soft); border-bottom:1px dotted var(--line);}
+  .link-btn{
+    background:none; border:none; padding:0; margin:0;
+    font:inherit; font-size:13.5px; cursor:pointer;
+    color:var(--text-soft); border-bottom:1px dotted var(--line);
+  }
+  button.btn{cursor:pointer; font:inherit;}
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark"></span>Vantia</div>
+    <a class="btn btn-primary btn-sm" href="https://wa.me/524922190144?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Vantia%20y%20quiero%20saber%20m%C3%A1s%20del%20piloto">
+      Escribir por WhatsApp
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow-hero">Vantia · Automatización con IA para clínicas</span>
+    <h1>Cada mensaje de WhatsApp sin responder es un paciente que se va a otra clínica.</h1>
+    <p class="lead">Vantia conecta tu WhatsApp con un asistente de IA que responde consultas, agenda citas y hace seguimiento — las 24 horas, sin que tu recepción tenga que estar pegada al teléfono.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/524922190144?text=Hola%2C%20quiero%20aplicar%20al%20piloto%20gratuito%20de%20Vantia">Aplicar al piloto gratuito</a>
+      <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://calendar.app.google/uCWeFYUViNCMCM9F8">Agendar una llamada</a>
+    </div>
+    <div class="hero-stat-row">
+      <span class="pill">Respuesta en segundos, 24/7</span>
+      <span class="pill">Sin nada que instalar en tu consultorio</span>
+      <span class="pill">Cupos limitados: 3 clínicas</span>
+    </div>
+    <a class="hero-email-link" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=davidorado03@gmail.com&su=Piloto%20Vantia&body=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20piloto%20de%20Vantia.">O escríbeme por correo: davidorado03@gmail.com</a>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="band" style="padding-top:44px;">
+    <span class="eyebrow">El problema real</span>
+    <h2 style="font-size:26px; margin-top:10px;">La mayoría de las citas se pierden antes de que alguien las conteste.</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="num">62%</div>
+        <p>de los pacientes que no reciben respuesta en los primeros minutos buscan otra clínica, según estudios de atención al cliente en salud.</p>
+      </div>
+      <div class="problem-card">
+        <div class="num">24/7</div>
+        <p>Los pacientes escriben fuera de horario de atención — fines de semana, noches, entre citas — cuando nadie de tu equipo puede responder.</p>
+      </div>
+      <div class="problem-card">
+        <div class="num">0€</div>
+        <p>Es lo que cuesta perder un paciente por no contestar a tiempo un mensaje que ya estaba listo para agendar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:8px;">
+    <span class="eyebrow">Cómo funciona</span>
+    <h2 style="font-size:26px; margin-top:10px;">De mensaje sin leer a cita confirmada, sin que muevas un dedo.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>El paciente escribe por WhatsApp o Instagram</h3>
+          <p>Pregunta por horarios, precios, disponibilidad o un tratamiento específico, a cualquier hora del día.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>La IA responde con el tono y la información de tu clínica</h3>
+          <p>Usa una base de conocimiento hecha a partir de tus servicios, precios y protocolos — nunca inventa ni da información médica que no le corresponde.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>La cita queda agendada en tu calendario</h3>
+          <p>Sin duplicados, sin choques de horario, con recordatorio automático para reducir las ausencias.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Tu equipo solo ve lo que importa</h3>
+          <p>Casos ambiguos o preguntas clínicas se escalan a una persona real — la IA nunca sustituye el criterio de tu equipo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0;">
+    <div class="trust">
+      <div class="trust-icon">🛡️</div>
+      <div>
+        <h3>Construido con el mismo rigor con el que se prueba software crítico</h3>
+        <p>Vengo de ingeniería de software y control de calidad (QA): cada automatización se prueba a fondo con decenas de preguntas reales antes de tocar el WhatsApp real de tu clínica. No es una plantilla genérica — es un sistema hecho a la medida de tu forma de atender.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0;">
+    <div class="pilot">
+      <span class="eyebrow">Programa piloto</span>
+      <h2>Estoy seleccionando 3 clínicas para el piloto gratuito</h2>
+      <p>A cambio de implementar el sistema sin costo durante el primer mes, te pido honestidad sobre los resultados y, si te sirve, un testimonio corto que pueda mostrar a otras clínicas.</p>
+      <div class="pilot-includes">
+        <span class="chip">Configuración incluida</span>
+        <span class="chip">Ajustes ilimitados durante el piloto</span>
+        <span class="chip">Sin permanencia ni letra pequeña</span>
+      </div>
+      <div class="pilot-ctas">
+        <a class="btn btn-primary" href="https://wa.me/524922190144?text=Hola%2C%20quiero%20aplicar%20al%20piloto%20gratuito%20de%20Vantia">Quiero uno de los 3 cupos</a>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://calendar.app.google/uCWeFYUViNCMCM9F8">Agendar una llamada</a>
+      </div>
+      <a class="pilot-email-link" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=davidorado03@gmail.com&su=Piloto%20Vantia&body=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20piloto%20de%20Vantia.">O escríbeme: davidorado03@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="brand"><span class="brand-mark" style="width:20px;height:20px;"></span>Vantia</div>
+  <p>Automatización con IA para clínicas dentales y estéticas — respuestas y agendamiento sin perder pacientes.</p>
+  <div class="foot-links">
+    <a target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=davidorado03@gmail.com&su=Piloto%20Vantia&body=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20piloto%20de%20Vantia.">davidorado03@gmail.com</a>
+    <a href="https://wa.me/524922190144">WhatsApp</a>
+    <a target="_blank" rel="noopener" href="https://calendar.app.google/uCWeFYUViNCMCM9F8">Agendar llamada</a>
+  </div>
+</footer>
+
+
+</body></html>
