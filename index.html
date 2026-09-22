@@ -86,6 +86,8 @@
     display:flex; align-items:center; justify-content:space-between;
     padding-block:14px; gap:12px;
   }
+  .topbar-ctas{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  @media (max-width:480px){ .topbar-ctas .btn-ghost{display:none;} }
   .brand{
     font-family:"Fraunces",serif; font-weight:600; font-size:19px;
     display:flex; align-items:center; gap:8px;
@@ -255,9 +257,14 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand"><span class="brand-mark"></span>Vantia</div>
-    <a class="btn btn-primary btn-sm" href="https://wa.me/524922190144?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Vantia%20y%20quiero%20saber%20m%C3%A1s%20del%20piloto">
-      Escribir por WhatsApp
-    </a>
+    <div class="topbar-ctas">
+      <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://calendar.app.google/uCWeFYUViNCMCM9F8">
+        Agendar llamada
+      </a>
+      <a class="btn btn-primary btn-sm" href="https://wa.me/524922190144?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Vantia%20y%20quiero%20saber%20m%C3%A1s%20del%20piloto">
+        Escribir por WhatsApp
+      </a>
+    </div>
   </div>
 </header>
 
